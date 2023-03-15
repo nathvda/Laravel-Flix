@@ -27,6 +27,7 @@
     <div class="w-80">
     <img src="/media/thumbnails/{{$movie->thumbnail}}" class="rounded-md"/>
     <h6 class="text-white">{{$movie->title}}</h6>
+    <x-add-to-list id="{{$movie->id}}"/>
 </div></a>
 @endforeach
 </div>

@@ -33,6 +33,7 @@
 </div>
 
 <a href="/watch/{{$movie->id}}" class="bg-purple text-white"><button type="button" class="bg-purple text-white">Play</button></a>
+<x-add-to-list id="{{$movie->id}}"/>
 
 </body>
 </html>
