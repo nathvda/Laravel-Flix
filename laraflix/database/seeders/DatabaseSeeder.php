@@ -14,9 +14,16 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        \App\Models\Video::factory()->create([
+            'title' => 'Halazia',
+            'pitch' => 'a bunch of young people try to save the world',
+            'summary' => 'a bunch of young people try to save the world from robots and push people to get back their emotions.'
+        ]);
+
+        \App\Models\Video::factory()->create([
+            'title' => 'Halazia',
+            'pitch' => 'a bunch of young people try to save the world',
+            'summary' => 'a bunch of young people try to save the world from robots and push people to get back their emotions.'
+        ]);
     }
 }

@@ -41,9 +41,7 @@ class ProfileController extends Controller
 
         $profile->save();
 
-        session(['profile' => $profile->id]);
-
-        return redirect('/browse');
+        return redirect("/browse/$profile->id");
 
     }
 
