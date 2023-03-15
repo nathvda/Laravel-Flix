@@ -4,6 +4,7 @@ use App\Models\User;
 use App\Models\Profile;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VideoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SessionController;
 
@@ -37,3 +38,7 @@ Route::get('/profile/new', [ProfileController::class, 'create']);
 Route::post('/profile/new', [ProfileController::class, 'store']);
 
 Route::get('/browse/{profile}', [ProfileController::class, 'index']);
+
+Route::get('/see/{movie}', [VideoController::class, 'show']);
+
+Route::get('/watch/{movie}', [VideoController::class, 'watch']);

@@ -34,9 +34,9 @@ class VideoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Video $video)
+    public function show(String $id)
     {
-        //
+        return view('videos.show', ['movie' => Video::find($id)]);
     }
 
     /**
