@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Video;
 use App\Models\Avatar;
 use App\Models\Profile;
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ class ProfileController extends Controller
     {
         session(['profile' => $id]);
         
-        return view('/browse', ['profile' => Profile::find($id)]);
+        return view('/browse', ['profile' => Profile::find($id), 'movies' => Video::limit(1)->get()]);
     }
 
     /**
