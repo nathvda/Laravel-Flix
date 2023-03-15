@@ -1,4 +1,4 @@
-@props(['text' => 'Submit', 'type' => 'submit'])
+@props(['type' => 'submit'])
 <div>
-    <button type={{$type}}>{{$text}}</button>
+    <button type={{$type}}>{{$slot}}</button>
 </div>

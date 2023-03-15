@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Avatar;
 use App\Models\Profile;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateProfileRequest;
 
 class ProfileController extends Controller
 {
@@ -20,15 +22,23 @@ class ProfileController extends Controller
      */
     public function create()
     {
-        //
+        return view('profiles.create', ['avatars' => Avatar::get()]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CreateProfileRequest $request)
     {
-        //
+
+        Profile::create([
+            'username' => $request['username'],
+            'avatar_id' => $request['avatar_id'],
+            'user_id' => auth()->user()->id
+        ]);
+
+        return redirect('/browse');
+
     }
 
     /**

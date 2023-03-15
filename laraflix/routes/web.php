@@ -3,6 +3,7 @@
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SessionController;
 
 /*
@@ -29,3 +30,7 @@ Route::post('/register', [UserController::class, 'store']);
 Route::get('/login', [SessionController::class, 'create']);
 
 Route::post('/login', [SessionController::class, 'store']);
+
+Route::get('/profile/new', [ProfileController::class, 'create']);
+
+Route::post('/profile/new', [ProfileController::class, 'store']);
