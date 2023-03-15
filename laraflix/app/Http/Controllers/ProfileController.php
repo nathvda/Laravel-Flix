@@ -12,9 +12,11 @@ class ProfileController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(String $id)
     {
-        //
+        session(['profile' => $id]);
+        
+        return view('/browse', ['profile' => Profile::find($id)]);
     }
 
     /**
@@ -31,11 +33,15 @@ class ProfileController extends Controller
     public function store(CreateProfileRequest $request)
     {
 
-        Profile::create([
+        $profile = Profile::create([
             'username' => $request['username'],
             'avatar_id' => $request['avatar_id'],
             'user_id' => auth()->user()->id
         ]);
+
+        $profile->save();
+
+        session(['profile' => $profile->id]);
 
         return redirect('/browse');
 
@@ -46,7 +52,7 @@ class ProfileController extends Controller
      */
     public function show(Profile $profile)
     {
-        //
+        return view('/browse', ['profile' => Profile::find(session()->get('profile'))]);
     }
 
     /**

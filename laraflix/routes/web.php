@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use App\Models\Profile;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
@@ -34,3 +35,5 @@ Route::post('/login', [SessionController::class, 'store']);
 Route::get('/profile/new', [ProfileController::class, 'create']);
 
 Route::post('/profile/new', [ProfileController::class, 'store']);
+
+Route::get('/browse/{profile}', [ProfileController::class, 'index']);
