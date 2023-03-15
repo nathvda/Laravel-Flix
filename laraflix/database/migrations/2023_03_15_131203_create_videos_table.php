@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('pitch');
             $table->text('summary');
             $table->string('path');
+            $table->string('thumbnail');
             $table->timestamps();
         });
     }

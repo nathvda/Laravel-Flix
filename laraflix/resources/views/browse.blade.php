@@ -13,7 +13,7 @@
 <body class="antialiased p-10 pt-14 min-h-screen min-w-screen relative flex flex-col justify-center bg-gradient-to-tr from-purple-900 via-black to-orange-900">
 <x-navigation-bar>
     <span class="text-white font-bolder">Welcome back, {{$profile->username}}, what will you be watching today ?</span>
-    <a href="/logout">Log out</a>
+    <a href="/logout" class="text-white">Log out</a>
 </x-navigation-bar>
 <a href="{{ url()->previous() }}">←</a>
 <h3 class="text-white font-bolder text-xl">Your list</h3>
@@ -21,11 +21,11 @@
 </div>
 
 <h3 class="text-white font-bolder text-xl">Recently released</h3>
-<div class="flex gap-4 snap-proximity overflow-x-hidden">
+<div class="flex gap-8 overflow-x-scroll w-3/4 snap-x snap-mandatory scroll-mt-4">
 @foreach($movies as $movie)
-<a href="/see/{{$movie->id}}">
-    <div class="">
-    <img src="/images/thumbnail.png" class="rounded-md"/>
+<a href="/see/{{$movie->id}}" class="snap-start">
+    <div class="w-80">
+    <img src="/media/thumbnails/{{$movie->thumbnail}}" class="rounded-md"/>
     <h6 class="text-white">{{$movie->title}}</h6>
 </div></a>
 @endforeach
