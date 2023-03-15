@@ -19,7 +19,7 @@
     <x-form.input type="text" name="username"/>
     <fieldset class="flex"><legend>Choose an avatar</legend>
         @foreach($avatars as $avatar)
-        <input class="hidden" type="radio" id="avatar_id" name="avatar_id" value="{{$avatar->id}}">
+        <input class="" type="radio" id="avatar_id" name="avatar_id" value="{{$avatar->id}}">
         <label for="avatar_id"><img src="/images/{{$avatar->url}}"></label>
         @endforeach
     </fieldset>

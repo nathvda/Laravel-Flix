@@ -10,7 +10,7 @@
 
 </head>
 
-<body class="antialiased p-10 pt-14 min-h-screen min-w-screen relative flex flex-col justify-center bg-gradient-to-tr from-purple-900 via-black to-orange-900">
+<body class="antialiased p-10 pt-14 min-h-screen min-w-screen relative flex flex-col justify-start bg-gradient-to-tr from-purple-900 via-black to-orange-900">
 <x-navigation-bar>
     <span class="text-white font-bolder">Welcome back, {{$profile->username}}, what will you be watching today ?</span>
     <a href="/logout" class="text-white">Log out</a>
@@ -21,7 +21,7 @@
 </div>
 
 <h3 class="text-white font-bolder text-xl">Recently released</h3>
-<div class="flex gap-8 overflow-x-scroll w-3/4 snap-x snap-mandatory scroll-mt-4">
+<div class="flex gap-8 overflow-x-scroll snap-x snap-mandatory scroll-mt-4 py-4">
 @foreach($movies as $movie)
 <a href="/see/{{$movie->id}}" class="snap-start">
     <div class="w-80">
