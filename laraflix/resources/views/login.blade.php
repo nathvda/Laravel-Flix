@@ -1,5 +1,7 @@
 <x-navigation-bar/>
 
-<x-form.input name="username"/>
+<x-form.formbody action="/login">
+<x-form.input name="email" type="email"/>
 <x-form.input name="password" type="password"/>
 <x-form.button/>
+</x-form.formbody>

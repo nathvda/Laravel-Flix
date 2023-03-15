@@ -16,4 +16,18 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    public function test_gets_register_page(): void
+    {
+        $response = $this->get('/register');
+
+        $response->assertStatus(200);
+    }
+
+    public function test_sends_request(): void
+    {
+        $response = $this->post('/register');
+
+        $response->assertStatus(200);
+    }
 }

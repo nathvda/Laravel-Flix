@@ -1,6 +1,9 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\SessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,8 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', fn () => view('welcome'));
+Route::get('/', fn () => view('welcome'))->middleware('guest');
 
-Route::get('/register', fn () => view('register'));
+Route::get('/home', function () {
+    return view('homepage', ['user' => User::find(auth()->user()->id)]);
+})->middleware('auth');
 
-Route::get('/login', fn () => view('login'));
+Route::get('/register', [UserController::class, 'create']);
+
+Route::post('/register', [UserController::class, 'store']);
+
+Route::get('/login', [SessionController::class, 'create']);
+
+Route::post('/login', [SessionController::class, 'store']);
