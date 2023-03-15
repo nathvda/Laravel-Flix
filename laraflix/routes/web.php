@@ -25,20 +25,22 @@ Route::get('/home', function () {
     return view('homepage', ['user' => User::find(auth()->user()->id)]);
 })->middleware('auth');
 
-Route::get('/register', [UserController::class, 'create']);
+Route::get('/register', [UserController::class, 'create'])->middleware('guest');
 
-Route::post('/register', [UserController::class, 'store']);
+Route::post('/register', [UserController::class, 'store'])->middleware('guest');
 
-Route::get('/login', [SessionController::class, 'create']);
+Route::get('/login', [SessionController::class, 'create'])->middleware('guest');
 
-Route::post('/login', [SessionController::class, 'store']);
+Route::post('/login', [SessionController::class, 'store'])->middleware('guest');
 
-Route::get('/profile/new', [ProfileController::class, 'create']);
+Route::get('/profile/new', [ProfileController::class, 'create'])->middleware('auth');
 
-Route::post('/profile/new', [ProfileController::class, 'store']);
+Route::post('/profile/new', [ProfileController::class, 'store'])->middleware('auth');
 
-Route::get('/browse/{profile}', [ProfileController::class, 'index']);
+Route::get('/browse/{profile}', [ProfileController::class, 'index'])->middleware('auth');
 
-Route::get('/see/{movie}', [VideoController::class, 'show']);
+Route::get('/see/{movie}', [VideoController::class, 'show'])->middleware('auth');
 
-Route::get('/watch/{movie}', [VideoController::class, 'watch']);
+Route::get('/watch/{movie}', [VideoController::class, 'watch'])->middleware('auth');
+
+Route::get('/logout', [SessionController::class, 'destroy'])->middleware('auth');

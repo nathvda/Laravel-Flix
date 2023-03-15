@@ -32,4 +32,10 @@ class SessionController extends Controller
 
         return redirect('/home');
     }
+
+    public function destroy(){
+        auth()->logout();
+
+        return redirect('/');
+    }
 }

@@ -19,7 +19,7 @@
     label="English"
     kind="subtitles"
     srclang="en"
-    src="captions/sugar_rush_ride_fr.vtt"
+    src="/captions/sugar_rush_ride_fr.vtt"
     default />
   <track
     label="Deutsch"
