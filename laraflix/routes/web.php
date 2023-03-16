@@ -1,12 +1,12 @@
 <?php
 
 use App\Models\User;
-use App\Models\Profile;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\MovieProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,5 +42,9 @@ Route::get('/browse/{profile}', [ProfileController::class, 'index'])->middleware
 Route::get('/see/{movie}', [VideoController::class, 'show'])->middleware('auth');
 
 Route::get('/watch/{movie}', [VideoController::class, 'watch'])->middleware('auth');
+
+Route::post('/addtolist/{movie}/{profile}', [MovieProfileController::class, 'store'])->middleware('auth');
+
+Route::post('/removefromlist/{movie}/{profile}', [MovieProfileController::class, 'destroy'])->middleware('auth');
 
 Route::get('/logout', [SessionController::class, 'destroy'])->middleware('auth');

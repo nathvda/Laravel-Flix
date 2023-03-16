@@ -19,4 +19,9 @@ class Video extends Model
     {
         return $this->belongsToMany(Actors::class, 'actor_movies', 'movie_id', 'actor_id');
     }
+
+    public function profiles(): BelongsToMany
+    {
+        return $this->belongsToMany(Profile::class, 'movie_profiles', 'movie_id', 'profile_id');
+    }
 }
