@@ -43,9 +43,7 @@ class VideoController extends Controller
     public function watch(String $id, Request $request)
     {
 
-        MovieView::create([
-            "movie_id" => $id,
-            "profile_id" => session()->get('profile')]);
+
 
         return view('videos.watch', ['movie' => Video::find($id)]);
     }

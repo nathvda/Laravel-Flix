@@ -18,7 +18,7 @@ class ProfileController extends Controller
     {
         session(['profile' => $id]);
         
-        return view('/browse', ['profile' => Profile::find($id), 'movies' => Video::latest()->limit(20)->get(), 'genres' => Genre::inRandomOrder()->limit(5)->get()]);
+        return view('/browse', ['profile' => Profile::find($id), 'movies' => Video::latest()->limit(20)->get(), 'genres' => Genre::inRandomOrder()->limit(5)->get(), 'header' => Video::inRandomOrder()->first()]);
     }
 
     /**
