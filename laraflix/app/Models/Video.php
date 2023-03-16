@@ -15,6 +15,11 @@ class Video extends Model
         return $this->belongsToMany(Genre::class, 'genre_movies', 'movie_id', 'genre_id');
     }
 
+    public function countries(): BelongsToMany
+    {
+        return $this->belongsToMany(Country::class, 'country_movies', 'movie_id', 'country_id');
+    }
+
     public function actors(): BelongsToMany
     {
         return $this->belongsToMany(Actors::class, 'actor_movies', 'movie_id', 'actor_id');

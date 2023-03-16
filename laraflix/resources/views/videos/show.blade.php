@@ -33,6 +33,14 @@
 @endforeach
 </div>
 
+<div class="p-10">
+<h6 class="font-bolder">Country</h6>
+@foreach($movie->countries as $country)
+{{$country->name}}
+@endforeach
+</div>
+
+
 <div class="flex w-full">
 <x-add-to-list id="{{$movie->id}}" profile="{{session()->get('profile')}}"/>
 <x-play-button id="{{$movie->id}}"/>
