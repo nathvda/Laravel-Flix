@@ -41,6 +41,8 @@
     </div>
     @endforeach
 
+    <x-footer/>
+
 </body>
 
 </html>

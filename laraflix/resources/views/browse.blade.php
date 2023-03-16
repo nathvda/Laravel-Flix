@@ -21,7 +21,7 @@
 
     <a href="{{ url()->previous() }}">←</a>
 
-    <header class="h-96 -mx-10 p-10 relative bg-image bg-cover bg-opacity-25 bg-gradient-to-br from-black" style="background-image:url('/media/thumbnails/{{$header->thumbnail}}')">
+    <header class="h-96 -mx-10 p-10 relative bg-image bg-no-repeat" style="background-image:url('/media/thumbnails/{{$header->thumbnail}}')">
     <h1 class="text-9xl text-white">{{$header->title}}</h1>
     <p class="text-gray-100">{{$header->summary}}</p>
     <div class="flex absolute bottom-10 w-40 justify-between">
@@ -90,6 +90,7 @@
         @endforeach
     </div>
     @endforeach
+
     <x-footer/>
 
 </body>
