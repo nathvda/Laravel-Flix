@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Video;
 use App\Models\MovieView;
 use Illuminate\Http\Request;
 
-class VideoController extends Controller
+class MovieViewController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,26 +34,15 @@ class VideoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(String $id)
+    public function show(MovieView $movieView)
     {
-        return view('videos.show', ['movie' => Video::find($id)]);
+        //
     }
-
-    public function watch(String $id, Request $request)
-    {
-
-        MovieView::create([
-           "movie_id" => $id,
-           "profile_id" => session()->get('profile')]);
-
-        return view('videos.watch', ['movie' => Video::find($id)]);
-    }
-
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Video $video)
+    public function edit(MovieView $movieView)
     {
         //
     }
@@ -62,7 +50,7 @@ class VideoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Video $video)
+    public function update(Request $request, MovieView $movieView)
     {
         //
     }
@@ -70,7 +58,7 @@ class VideoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Video $video)
+    public function destroy(MovieView $movieView)
     {
         //
     }
