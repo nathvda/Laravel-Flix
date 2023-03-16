@@ -12,9 +12,9 @@ class Country extends Model
 
     protected $table = 'countries';
 
-    public function countries(): BelongsToMany
+    public function movies(): BelongsToMany
     {
-        return $this->belongsToMany(Video::class, 'country_movies', 'country_id', 'movie_id');
+        return $this->belongsToMany(Video::class, 'country_movies', 'country_id', 'movie_id')->inRandomOrder()->limit(42);
     }
 
 }

@@ -3,7 +3,9 @@
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\GenreController;
 use App\Http\Controllers\VideoController;
+use App\Http\Controllers\CountryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\MovieProfileController;
@@ -50,3 +52,8 @@ Route::post('/removefromlist/{movie}/{profile}', [MovieProfileController::class,
 Route::get('/watchlist/', [VideoController::class, 'watch'])->middleware('auth');
 
 Route::get('/logout', [SessionController::class, 'destroy'])->middleware('auth');
+
+Route::get('/genres', [GenreController::class, 'index'])->middleware('auth');
+
+Route::get('/countries', [CountryController::class, 'index'])->middleware('auth');
+

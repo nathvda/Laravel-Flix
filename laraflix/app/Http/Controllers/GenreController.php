@@ -12,7 +12,7 @@ class GenreController extends Controller
      */
     public function index()
     {
-        //
+        return view('genres.index', ['genres' => Genre::get()]);
     }
 
     /**

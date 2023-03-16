@@ -10,8 +10,9 @@
 
 </head>
 
-<body class="antialiased min-h-screen min-w-screen relative flex items-center justify-center bg-gradient-to-tr from-purple-900 via-black to-orange-900">
+<body class="antialiased min-h-screen min-w-screen relative flex flex-col gap-10 items-center justify-center bg-gradient-to-tr from-purple-900 via-black to-orange-900">
 
+<h1 class="text-7xl text-white font-bolder">Who's there?</h1>
 <div class="flex gap-10">
 @foreach($user->profiles as $profile)
 <x-homepage.choose-user-frame>
