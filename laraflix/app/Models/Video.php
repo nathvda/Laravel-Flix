@@ -24,4 +24,5 @@ class Video extends Model
     {
         return $this->belongsToMany(Profile::class, 'movie_profiles', 'movie_id', 'profile_id');
     }
+
 }

@@ -13,7 +13,7 @@
 <body class="antialiased min-h-screen min-w-screen relative flex items-center justify-center bg-gradient-to-tr from-purple-900 via-black to-orange-900">
    
 
-<video controls autoplay class="w-screen h-screen">
+<video controls autoplay muted class="w-screen h-screen">
     <source src="/media/{{$movie->path}}" type="video/mp4">
     <track
     label="English"

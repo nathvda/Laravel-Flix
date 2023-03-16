@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddToListRequest;
 use App\Models\MovieProfile;
 use Illuminate\Http\Request;
 

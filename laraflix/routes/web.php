@@ -47,4 +47,6 @@ Route::post('/addtolist/{movie}/{profile}', [MovieProfileController::class, 'sto
 
 Route::post('/removefromlist/{movie}/{profile}', [MovieProfileController::class, 'destroy'])->middleware('auth');
 
+Route::get('/watchlist/', [VideoController::class, 'watch'])->middleware('auth');
+
 Route::get('/logout', [SessionController::class, 'destroy'])->middleware('auth');
