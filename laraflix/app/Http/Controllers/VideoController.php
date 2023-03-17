@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Video;
+use App\Models\Profile;
 use App\Models\MovieView;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,7 @@ class VideoController extends Controller
      */
     public function index()
     {
-        //
+        return view('movies.index', ['profile' => Profile::find(session()->get('profile'))]);
     }
 
     /**

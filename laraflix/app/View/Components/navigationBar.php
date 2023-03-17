@@ -3,8 +3,9 @@
 namespace App\View\Components;
 
 use Closure;
-use Illuminate\Contracts\View\View;
+use App\Models\Profile;
 use Illuminate\View\Component;
+use Illuminate\Contracts\View\View;
 
 class navigationBar extends Component
 {
@@ -21,6 +22,6 @@ class navigationBar extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.navigation-bar');
+        return view('components.navigation-bar', ['profile' => Profile::find(session()->get('profile'))]);
     }
 }

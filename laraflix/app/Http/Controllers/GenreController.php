@@ -35,9 +35,9 @@ class GenreController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Genre $genre)
+    public function show(Request $request)
     {
-        //
+        return view('genres.show', ['genre' => Genre::find($request['genre']), 'profile' => Profile::find(session()->get('profile'))]);
     }
 
     /**

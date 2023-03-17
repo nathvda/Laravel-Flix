@@ -14,4 +14,5 @@ class Genre extends Model
     {
         return $this->belongsToMany(Video::class, 'genre_movies', 'genre_id', 'movie_id')->inRandomOrder()->limit(42);
     }
+
 }

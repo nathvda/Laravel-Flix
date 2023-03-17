@@ -57,7 +57,11 @@ Route::get('/logout', [SessionController::class, 'destroy'])->middleware('auth')
 
 Route::get('/genres', [GenreController::class, 'index'])->middleware('auth');
 
+Route::get('/view/genre/{genre}', [GenreController::class, 'show'])->middleware('auth');
+
 Route::get('/countries', [CountryController::class, 'index'])->middleware('auth');
+
+Route::get('/yourlist', [VideoController::class, 'index'])->middleware('auth');
 
 Route::post('/like/{movie}/{profile}', [LikeController::class, 'store'])->middleware('auth');
 
