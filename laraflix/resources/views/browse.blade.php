@@ -25,10 +25,10 @@
 
     <a href="{{ url()->previous() }}">←</a>
 
-    <header class="h-96 -mx-10 p-10 relative bg-image bg-no-repeat" style="background-image:url('/media/thumbnails/{{$header->thumbnail}}')">
-    <h1 class="text-9xl text-white">{{$header->title}}</h1>
-    <p class="text-gray-100">{{$header->summary}}</p>
-    <div class="flex absolute bottom-10 w-40 justify-between">
+    <header class="-mx-10 h-3/4 p-10 relative bg-image bg-no-repeat bg-center" style="background-image:url('/media/thumbnails/{{$header->thumbnail}}');height:35rem;">
+    <h1 class="text-7xl text-white p-10 pb-0">{{$header->title}}</h1>
+    <p class="text-gray-100 w-2/6 p-10 font-bolder">{{$header->summary}}
+    <div class="flex w-80 justify-between p-10">
     <x-play-button id="{{$header->id}}" />
     @if(!$profile->isLiked(session()->get('profile'), $header->id))
     <x-like-button id="{{$header->id}}" profile="{{session()->get('profile')}}"/>
@@ -40,6 +40,13 @@
                     @else
                     <x-disliked id="{{$header->id}}" profile="{{session()->get('profile')}}"/>
                     @endif
+    <a href="/see/{{$header->id}}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#FFFFFF" class="bi bi-info-circle" viewBox="0 0 16 16">
+  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+  <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+</svg></a></div>
+    </p>
+    
     </header>
 
     <h3 class="text-white text-xl flex items-center font-black mt-10 h-8 leading-8"><a href="/yourlist">Your list </a><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#FFFFFF" class="bi bi-chevron-right" viewBox="0 0 16 16">
@@ -128,5 +135,4 @@
     <x-footer/>
 
 </body>
-
 </html>

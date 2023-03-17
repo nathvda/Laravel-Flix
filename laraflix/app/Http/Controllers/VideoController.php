@@ -38,7 +38,7 @@ class VideoController extends Controller
      */
     public function show(String $id)
     {
-        return view('videos.show', ['movie' => Video::find($id)]);
+        return view('videos.show', ['movie' => Video::find($id), 'profile' => Profile::find(session()->get('profile'))]);
     }
 
     public function watch(String $id, Request $request)

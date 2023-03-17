@@ -16,7 +16,7 @@
 <h1 class="text-7xl text-white">{{$movie->title}}</h1>
 
 <div class="p-10"><h4 class="text-white text-3xl">Summary</h4>
-{{$movie->summary}}
+<p class="text-gray-100 w-2/6 p-10 font-bolder">{{$movie->summary}}</p>
 </div>
 
 <div class="p-10">
@@ -44,6 +44,16 @@
 <div class="flex w-40 gap-10 border rounded-md px-5 py-2">
 <x-add-to-list id="{{$movie->id}}" profile="{{session()->get('profile')}}"/>
 <x-play-button id="{{$movie->id}}"/>
+@if(!$profile->isLiked(session()->get('profile'), $movie->id))
+    <x-like-button id="{{$movie->id}}" profile="{{session()->get('profile')}}"/>
+    @else
+    <x-liked id="{{$movie->id}}" profile="{{session()->get('profile')}}" />
+    @endif
+    @if(!$profile->isDisliked(session()->get('profile'), $movie->id))
+                    <x-dislike-button id="{{$movie->id}}" profile="{{session()->get('profile')}}"/>
+                    @else
+                    <x-disliked id="{{$movie->id}}" profile="{{session()->get('profile')}}"/>
+                    @endif
 </div>
 
 </body>
