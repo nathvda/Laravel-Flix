@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Like;
+use App\Models\Dislike;
 use Illuminate\Http\Request;
 
 class LikeController extends Controller
@@ -33,6 +34,8 @@ class LikeController extends Controller
             'profile_id' => $request['profile']
 
         ]);
+
+        Dislike::where('movie_id',$request['movie'])->where('profile_id',$request['profile'])->delete();
 
         return redirect('/browse/' . $request['profile']);
     }

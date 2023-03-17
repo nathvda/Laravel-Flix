@@ -47,6 +47,19 @@ class Profile extends Model
         } else {
         return false;
     }
+}
+
+    public function dislikes(): HasMany
+    {
+        return $this->hasMany(Dislike::class, 'profile_id', 'id');
+    }
+
+    public function isDisliked($profile, $movie){
+        if(count($this->dislikes->where('profile_id', $profile)->where('movie_id', $movie)) > 0){
+            return true;
+        } else {
+        return false;
+    }
 
     }
 }

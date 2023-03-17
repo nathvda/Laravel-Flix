@@ -2,11 +2,12 @@
 
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\CountryController;
-use App\Http\Controllers\LikeController;
+use App\Http\Controllers\DislikeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\MovieProfileController;
@@ -61,4 +62,8 @@ Route::get('/countries', [CountryController::class, 'index'])->middleware('auth'
 Route::post('/like/{movie}/{profile}', [LikeController::class, 'store'])->middleware('auth');
 
 Route::post('/unlike/{movie}/{profile}', [LikeController::class, 'destroy'])->middleware('auth');
+
+Route::post('/dislike/{movie}/{profile}', [DislikeController::class, 'store'])->middleware('auth');
+
+Route::post('/undislike/{movie}/{profile}', [DislikeController::class, 'destroy'])->middleware('auth');
 

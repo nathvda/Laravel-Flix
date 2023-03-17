@@ -7,3 +7,9 @@
 
 @tailwind components;
 @tailwind utilities;
+
+input[type=radio]:checked + label{
+  opacity:1;
+  outline:0.1rem solid rgb(126, 126, 126);
+  outline-offset:0.5rem;
+}

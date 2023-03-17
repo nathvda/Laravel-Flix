@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Country;
-use App\Models\Profile;
+use App\Models\Like;
+use App\Models\Dislike;
 use Illuminate\Http\Request;
 
-class CountryController extends Controller
+class DislikeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('countries.index', ['countries' => Country::get(), 'profile' => Profile::find(session()->get('profile'))]);
+        //
     }
 
     /**
@@ -29,13 +29,20 @@ class CountryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Dislike::create([
+            'movie_id' => $request['movie'],
+            'profile_id' => $request['profile']
+        ]);
+
+        Like::where('movie_id',$request['movie'])->where('profile_id',$request['profile'])->delete();
+
+        return redirect('/browse/' . $request['profile']);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Country $country)
+    public function show(Dislike $dislike)
     {
         //
     }
@@ -43,7 +50,7 @@ class CountryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Country $country)
+    public function edit(Dislike $dislike)
     {
         //
     }
@@ -51,7 +58,7 @@ class CountryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Country $country)
+    public function update(Request $request, Dislike $dislike)
     {
         //
     }
@@ -59,8 +66,10 @@ class CountryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Country $country)
+    public function destroy(Request $request)
     {
-        //
+        Dislike::where('movie_id',$request['movie'])->where('profile_id',$request['profile'])->delete();
+
+        return redirect('/browse/' . $request['profile']);
     }
 }

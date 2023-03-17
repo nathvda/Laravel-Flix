@@ -1,6 +1,6 @@
 @props(['name'])
-<span>
+<div class="text-red-500">
     @if($errors->has($name))
         {{$errors->first($name)}}
     @endif
-</span>
+</div>

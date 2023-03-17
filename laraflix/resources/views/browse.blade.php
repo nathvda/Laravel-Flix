@@ -31,8 +31,11 @@
     @else
     <x-liked id="{{$header->id}}" profile="{{session()->get('profile')}}" />
     @endif
-    <x-dislike-button /></div>
-
+    @if(!$profile->isDisliked(session()->get('profile'), $header->id))
+                    <x-dislike-button id="{{$header->id}}" profile="{{session()->get('profile')}}"/>
+                    @else
+                    <x-disliked id="{{$header->id}}" profile="{{session()->get('profile')}}"/>
+                    @endif
     </header>
 
     <h3 class="text-white text-xl flex items-center font-black mt-10 h-8 leading-8">Your list <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#FFFFFF" class="bi bi-chevron-right" viewBox="0 0 16 16">
@@ -52,8 +55,11 @@
                     @else
                     <x-liked id="{{$movie->id}}" profile="{{session()->get('profile')}}" />
                     @endif
-                    <x-dislike-button />
-                </div>
+                    @if(!$profile->isDisliked(session()->get('profile'), $movie->id))
+                    <x-dislike-button id="{{$movie->id}}" profile="{{session()->get('profile')}}"/>
+                    @else
+                    <x-disliked id="{{$movie->id}}" profile="{{session()->get('profile')}}"/>
+                    @endif                </div>
             </div>
         </a>
         @endforeach
@@ -75,8 +81,11 @@
                     @else
                     <x-liked id="{{$movie->id}}" profile="{{session()->get('profile')}}" />
                     @endif
-                    <x-dislike-button />
-                </div>
+                    @if(!$profile->isDisliked(session()->get('profile'), $movie->id))
+                    <x-dislike-button id="{{$movie->id}}" profile="{{session()->get('profile')}}"/>
+                    @else
+                    <x-disliked id="{{$movie->id}}" profile="{{session()->get('profile')}}"/>
+                    @endif                </div>
             </div>
         </a>
         @endforeach
@@ -99,7 +108,12 @@
                     @else
                     <x-liked id="{{$movie->id}}" profile="{{session()->get('profile')}}" />
                     @endif
-                    <x-dislike-button />
+                    @if(!$profile->isDisliked(session()->get('profile'), $movie->id))
+                    <x-dislike-button id="{{$movie->id}}" profile="{{session()->get('profile')}}"/>
+                    @else
+                    <x-disliked id="{{$movie->id}}" profile="{{session()->get('profile')}}"/>
+                    @endif
+                    
                 </div>
             </div>
         </a>

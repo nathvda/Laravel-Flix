@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Genre;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 
 class GenreController extends Controller
@@ -12,7 +13,7 @@ class GenreController extends Controller
      */
     public function index()
     {
-        return view('genres.index', ['genres' => Genre::get()]);
+        return view('genres.index', ['genres' => Genre::get(), 'profile' => Profile::find(session()->get('profile'))]);
     }
 
     /**

@@ -32,8 +32,16 @@
                 <h6 class="text-white">{{$movie->title}}</h6>
                 <div class="absolute opacity-0 group-hover:opacity-100 flex justify-evenly z-20 inset-5 bottom-10 rounded-md bg-opacity-40 bg-black items-center transition-all duration-600 group-hover:duration-600"><x-add-to-list id="{{$movie->id}}" profile="{{session()->get('profile')}}" />
                     <x-play-button id="{{$movie->id}}" />
-                    <x-like-button />
-                    <x-dislike-button />
+                    @if(!$profile->isLiked(session()->get('profile'), $movie->id))
+                    <x-like-button id="{{$movie->id}}" profile="{{session()->get('profile')}}"/>
+                    @else
+                    <x-liked id="{{$movie->id}}" profile="{{session()->get('profile')}}" />
+                    @endif
+                    @if(!$profile->isDisliked(session()->get('profile'), $movie->id))
+                    <x-dislike-button id="{{$movie->id}}" profile="{{session()->get('profile')}}"/>
+                    @else
+                    <x-disliked id="{{$movie->id}}" profile="{{session()->get('profile')}}"/>
+                    @endif
                 </div>
             </div>
         </a>

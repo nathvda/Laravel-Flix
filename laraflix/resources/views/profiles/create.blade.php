@@ -17,10 +17,11 @@
 
 <x-form.formbody action="/profile/new">
     <x-form.input type="text" name="username"/>
-    <fieldset class="flex"><legend>Choose an avatar</legend>
+    <legend class="text-white mb-5 mt-5">Choose an avatar</legend>
+    <fieldset class="mb-5 bg-gray-900 border border-gray-800 p-10 flex gap-5 flex-wrap items-center justify-center max-w-2xl"> 
         @foreach($avatars as $avatar)
-        <input class="" type="radio" id="avatar_id" name="avatar_id" value="{{$avatar->id}}">
-        <label for="avatar_id"><img src="/images/{{$avatar->url}}"></label>
+        <input class="hidden" type="radio" id="avatar_id-{{$avatar->id}}" name="avatar_id" value="{{$avatar->id}}"/>
+        <label class="opacity-50 hover:opacity-100" for="avatar_id-{{$avatar->id}}"><img class="w-40 rounded-xl" src="/images/{{$avatar->url}}"></label>
         @endforeach
     </fieldset>
     <x-form.button>Let's go!</x-form.button>
