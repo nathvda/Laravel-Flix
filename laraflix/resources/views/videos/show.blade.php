@@ -20,28 +20,28 @@
 </div>
 
 <div class="p-10">
-<h6 class="font-bolder">Cast</h6>
+<x-title-six>Cast</x-title-six>
 @foreach($movie->actors as $actor)
 {{$actor->name}}
 @endforeach
 </div>
 
 <div class="p-10">
-<h6 class="font-bolder">Genres</h6>
+<x-title-six>Genre</x-title-six>
 @foreach($movie->genres as $genre)
 {{$genre->name}}
 @endforeach
 </div>
 
 <div class="p-10">
-<h6 class="font-bolder">Country</h6>
+<x-title-six>Country</x-title-six>
 @foreach($movie->countries as $country)
 {{$country->name}}
 @endforeach
 </div>
 
 
-<div class="flex w-full">
+<div class="flex w-40 gap-10 border rounded-md px-5 py-2">
 <x-add-to-list id="{{$movie->id}}" profile="{{session()->get('profile')}}"/>
 <x-play-button id="{{$movie->id}}"/>
 </div>

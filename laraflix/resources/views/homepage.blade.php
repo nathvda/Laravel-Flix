@@ -27,4 +27,7 @@
 </x-homepage.choose-user-frame>
 @endif
 </div>
+
+<a class="text-white text-2xl font-light p-5 bg-gradient-to-tr from-gray-500 border border-gray-500 bg-opacity-50 rounded-md mt-10 hover:bg-purple-900 transition-all duration-500">Manage accounts</a>
+
 </body></html>

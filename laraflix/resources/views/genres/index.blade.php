@@ -11,11 +11,13 @@
 </head>
 
 <body class="antialiased overflow-x-hidden p-10 pt-14 min-h-screen min-w-screen relative flex flex-col justify-start bg-gradient-to-tr from-purple-900 via-black to-orange-900">
-    <x-navigation-bar>
+<x-navigation-bar><span class="text-white font-bolder">Welcome back, <span class="font-black">{{$profile->username}}</span>, what will you be watching today ?</span>
         <a href="/home" class="text-white">Switch account</a>
+        <a href="/browse/{{$profile->id}}" class="text-white">Browse</a>
         <a href="/genres" class="text-white">Genres</a>
         <a href="/countries" class="text-white">Countries</a>
         <a href="/logout" class="text-white">Log out</a>
+
     </x-navigation-bar>
     <a href="{{ url()->previous() }}">←</a>
     

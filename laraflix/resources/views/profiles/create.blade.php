@@ -26,6 +26,5 @@
     </fieldset>
     <x-form.button>Let's go!</x-form.button>
 </x-form.formbody>
-
 </body>
 </html>
