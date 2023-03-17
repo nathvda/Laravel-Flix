@@ -32,4 +32,9 @@ class Video extends Model
         return $this->belongsToMany(Profile::class, 'movie_profiles', 'movie_id', 'profile_id');
     }
 
+    public function likes(): HasMany
+    {
+        return $this->hasMany(Like::class, 'movie_id', 'id');
+    }
+
 }

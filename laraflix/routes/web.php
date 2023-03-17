@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\MovieProfileController;
@@ -56,4 +57,8 @@ Route::get('/logout', [SessionController::class, 'destroy'])->middleware('auth')
 Route::get('/genres', [GenreController::class, 'index'])->middleware('auth');
 
 Route::get('/countries', [CountryController::class, 'index'])->middleware('auth');
+
+Route::post('/like/{movie}/{profile}', [LikeController::class, 'store'])->middleware('auth');
+
+Route::post('/unlike/{movie}/{profile}', [LikeController::class, 'destroy'])->middleware('auth');
 

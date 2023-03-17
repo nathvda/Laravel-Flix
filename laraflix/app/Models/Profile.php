@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Profile extends Model
@@ -33,5 +34,19 @@ class Profile extends Model
     public function movies(): BelongsToMany
     {
         return $this->belongsToMany(Video::class, 'movie_profiles', 'profile_id', 'movie_id');
+    }
+
+    public function likes(): HasMany
+    {
+        return $this->hasMany(Like::class, 'profile_id', 'id');
+    }
+
+    public function isLiked($profile, $movie){
+        if(count($this->likes->where('profile_id', $profile)->where('movie_id', $movie)) > 0){
+            return true;
+        } else {
+        return false;
+    }
+
     }
 }
